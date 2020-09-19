@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "madefor.cc"
+version = "0.1.0"
+description = ""
+authors = ["Jonathan Coates <git@squiddev.cc>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+cloudflare = "^2.8.13"
+libsass = "^0.20.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.782"
+pylint = "^2.6.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
