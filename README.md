@@ -1,6 +1,6 @@
 # [madefor.cc]
 Provides vanity domains for ComputerCraft-related projects. This allows people to create their own websites, and use
-a [`x.madefor.cc`] domain.
+a `x.madefor.cc` domain.
 
 ## Examples:
  - [plethora.madefor.cc](https://plethora.madefor.cc "Plethora's documentation")
