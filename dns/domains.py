@@ -24,6 +24,7 @@ class Domain(DomainOptional):
 domains: Dict[str, Domain] = {
     # Please make sure to keep this sorted!
 
+    "cash": { "cname": "mcjack123.github.io" },
     "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "metis": { "cname": "squiddev-cc.github.io" },
     "plethora": { "cname": "squiddev-cc.github.io" },
