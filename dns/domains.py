@@ -31,5 +31,6 @@ domains: Dict[str, Domain] = {
     "plethora": { "cname": "squiddev-cc.github.io" },
     "potatos": { "cname": "osmarks.tk" },
     "skydocs": { "cname": "skythecodemaster.github.io" },
+    "thox": { "cname": "thox.touhey.pro" },
     "www": { "cname": "madefor.cc" },
 }
