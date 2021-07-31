@@ -34,5 +34,7 @@ domains: Dict[str, Domain] = {
     "potatos": { "cname": "osmarks.tk" },
     "skydocs": { "cname": "skythecodemaster.github.io" },
     "thox": { "cname": "thox.touhey.pro" },
+    "toasteros": { "cname": "https://raw.githubusercontent.com/Ai-Kiwi/ToasterOS3/main/installer.lua" },
     "www": { "cname": "madefor.cc" },
+    
 }
