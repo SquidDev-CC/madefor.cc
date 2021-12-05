@@ -24,12 +24,13 @@ class Domain(DomainOptional):
 domains: Dict[str, Domain] = {
     # Please make sure to keep this sorted!
 
-    "brag": { "cname": "bragosmagos.github.io" }, 
+    "brag": { "cname": "bragosmagos.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
     "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "gemstone": { "cname": "gemstone.znepb.me" },
     "impulses-cc-programs": { "cname": "emeraldimpulse7.github.io" },
     "metis": { "cname": "squiddev-cc.github.io" },
+    "music": { "cname": "autoclave.squiddev.cc" },
     "phileos" : {"cname": "ryan-te.github.io"},
     "plethora": { "cname": "squiddev-cc.github.io" },
     "potatos": { "cname": "osmarks.tk" },
