@@ -33,7 +33,7 @@ domains: Dict[str, Domain] = {
     "music": { "cname": "autoclave.squiddev.cc" },
     "phileos" : {"cname": "ryan-te.github.io"},
     "plethora": { "cname": "squiddev-cc.github.io" },
-    "potatos": { "cname": "osmarks.tk" },
+    "potatos": { "cname": "osmarks.net" },
     "skydocs": { "cname": "skythecodemaster.github.io" },
     "skygui": { "cname": "skythecodemaster.github.io" },
     "thox": { "cname": "thox.touhey.pro" },
