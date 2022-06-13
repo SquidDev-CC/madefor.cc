@@ -40,6 +40,7 @@ domains: Dict[str, Domain] = {
     "phoenix": { "cname": "phoenix-computercraft.netlify.app" },
     "plethora": { "cname": "squiddev-cc.github.io" },
     "potatos": { "cname": "osmarks.net" },
+    "recrafted": { "cname": "ocawesome101.github.io" },
     "skydocs": { "cname": "skythecodemaster.github.io" },
     "skygui": { "cname": "skythecodemaster.github.io" },
     "thox": { "cname": "thox.touhey.pro" },
