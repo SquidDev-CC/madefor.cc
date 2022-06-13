@@ -25,12 +25,12 @@ domains: Dict[str, Domain] = {
     # Please make sure to keep this sorted!
 
     "basalt": { "cname": "pyroxenium.github.io" },
-    "guih": { "cname": "apethesis.github.io" },
     "brag": { "cname": "bragosmagos.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
-    "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "consult" : {"cname": "1Turtle.github.io"},
+    "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "gemstone": { "cname": "gemstone.znepb.me" },
+    "guih": { "cname": "apethesis.github.io" },
     "impulsive-cc": { "cname": "emeraldimpulse7.github.io" },
     "infernity": { "cname": "infernostars.github.io" },
     "metis": { "cname": "squiddev-cc.github.io" },
