@@ -25,6 +25,6 @@ jobs:
         poetry install
 
     - name: Update DNS
-      run: poetry run python dns/sync.py
+      run: poetry run python -m dns.sync
       env:
         CF_API_KEY: ${{ secrets.CF_API_KEY }}

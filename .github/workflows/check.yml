@@ -23,3 +23,6 @@ jobs:
 
     - name: Typecheck code
       run: poetry run mypy dns
+
+    - name: Check domains
+      run: poetry run python -m dns.lint

@@ -12,8 +12,8 @@ from typing import Set, NamedTuple, List
 
 from CloudFlare import CloudFlare
 
-from domains import Domain, domains
-import log
+from dns.domains import Domain, domains
+import dns.log
 
 
 class AddDomain(NamedTuple):
@@ -94,5 +94,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    log.configure()
+    dns.log.configure()
     main()
