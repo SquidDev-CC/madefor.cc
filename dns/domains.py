@@ -27,6 +27,7 @@ domains: Dict[str, Domain] = {
     "basalt": { "cname": "pyroxenium.github.io" },
     "brag": { "cname": "bragosmagos.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
+    "ccsimplegui": { "cname": "masongulu.github.io" },
     "consult" : {"cname": "1Turtle.github.io"},
     "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "gemstone": { "cname": "gemstone.znepb.me" },
