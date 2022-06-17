@@ -1,10 +1,11 @@
-import sys
+import argparse
 import logging
+import sys
 from difflib import SequenceMatcher
 from typing import List
 
-from dns.domains import domains
 import dns.log
+from dns.domains import domains
 
 
 def write_diff(prefix: str, domain_list: List[str], start: int, end: int):
@@ -12,7 +13,7 @@ def write_diff(prefix: str, domain_list: List[str], start: int, end: int):
         print(f"{prefix}{domain_list[i]}\33[0m")
 
 
-def main() -> None:
+def main(*, fetch_domains: bool = False) -> None:
     valid = True
 
     domain_list = list(domains.keys())
@@ -55,9 +56,32 @@ def main() -> None:
             if "/" not in cname:
                 logging.info("Maybe try '%s' instead?", cname)
 
+    if fetch_domains:
+        for domain in domains.keys():
+            url = f"https://{domain}.madefor.cc"
+            from urllib.error import URLError
+            from urllib.request import urlopen
+
+            try:
+                with urlopen(url, timeout=5) as h:
+                    if h.getcode() != 200:
+                        valid = False
+                        logging.error("Got HTTP %s when requesting %s", url)
+
+            except URLError as e:
+                valid = False
+                logging.error("Cannot request %s (%s)", url, str(e))
+
     sys.exit(0 if valid else 1)
 
 
 if __name__ == "__main__":
     dns.log.configure()
-    main()
+
+    arg_spec = argparse.ArgumentParser()
+    arg_spec.add_argument(
+        "--fetch-domains", default=False, action="store_true", help="Fetch each domain and check it is still up."
+    )
+    args = arg_spec.parse_args()
+
+    main(fetch_domains=args.fetch_domains)
