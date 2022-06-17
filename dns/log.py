@@ -8,17 +8,12 @@ import warnings
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
 
-COLOURS = {
-    'WARNING': YELLOW,
-    'INFO': WHITE,
-    'DEBUG': BLUE,
-    'CRITICAL': YELLOW,
-    'ERROR': RED
-}
+COLOURS = {"WARNING": YELLOW, "INFO": WHITE, "DEBUG": BLUE, "CRITICAL": YELLOW, "ERROR": RED}
+
 
 def loop_exception_handler(loop: asyncio.AbstractEventLoop, context: Dict[str, Any]) -> None:
     """A custom error handler for the loop, which stops the loop before continuing to
-       the default handler
+    the default handler
 
     """
     logging.error("Terminating loop due to error")
@@ -26,9 +21,11 @@ def loop_exception_handler(loop: asyncio.AbstractEventLoop, context: Dict[str, A
         loop.stop()
     loop.default_exception_handler(context)
 
+
 class ColourFormatter(logging.Formatter):
     """Formats log messages using ANSI escape codes."""
-    def __init__(self, *args, **kwargs): # type: ignore
+
+    def __init__(self, *args, **kwargs):  # type: ignore
         super().__init__(*args, **kwargs)
 
     def format(self, record: logging.LogRecord) -> str:
@@ -37,23 +34,25 @@ class ColourFormatter(logging.Formatter):
             msg = "\033[1;3%dm%s\033[0m" % (COLOURS[record.levelname], msg)
         return msg
 
+
 FORMAT = "[%(asctime)s] [%(levelname)s/%(name)s] %(message)s"
+
 
 def configure() -> None:
     """Configure the root logger. This should be called once when the program is
-       initialised.
+    initialised.
 
     """
     # Be more aggressive in capturing warnings
     logging.captureWarnings(True)
-    warnings.simplefilter('default')
+    warnings.simplefilter("default")
 
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
 
     # Register a custom formatter, which prints things coloured with the time, level and coponent
     # name.
-    col_formatter = ColourFormatter(FORMAT, None, '%')
+    col_formatter = ColourFormatter(FORMAT, None, "%")
     col_formatter.default_msec_format = "%s.%03d"
 
     str_handler = logging.StreamHandler()

@@ -20,6 +20,8 @@ def main() -> None:
 
     # Ensure the list is sorted.
     if domain_list != sorted_domain_list:
+        valid = False
+
         logging.error("Domain list is not sorted")
 
         matcher = SequenceMatcher(None, domain_list, sorted_domain_list)
@@ -38,6 +40,8 @@ def main() -> None:
     for domain, info in domains.items():
         cname = info["cname"]
         if "/" in info["cname"]:
+            valid = False
+
             logging.error(
                 "Invalid CNAME '%s' for '%s'. This should be a domain name, not a URL",
                 cname,

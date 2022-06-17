@@ -59,7 +59,7 @@ def main() -> None:
             continue
 
         domain_id: str = record["id"]
-        name: str = record["name"][:-len(root) - 1]
+        name: str = record["name"][: -len(root) - 1]
         known.add(name)
 
         if name not in domains:
