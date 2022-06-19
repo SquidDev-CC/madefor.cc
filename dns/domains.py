@@ -46,4 +46,6 @@ domains: Dict[str, Domain] = {
     "skygui": { "cname": "skythecodemaster.github.io" },
     "thox": { "cname": "thox.touhey.pro" },
     "www": { "cname": "madefor.cc" },
+    "wolf-os": { "cname": "cc-wolf-os.github.io" },
+    
 }
