@@ -1,27 +1,25 @@
-"""
-Sync DNS records to CloudFlare
+"""Sync DNS records with our registrar"""
 
-This expects your CloudFlare token to be located in
-~/.cloudflare/cloudflare.cfg. That said, it is unlikely anyone but me will be
-running this :).
-"""
-
-import sys
+from dataclasses import dataclass
+import os
 import logging
-from typing import Set, NamedTuple, List
+import sys
+from typing import List, NamedTuple, Set
 
-from CloudFlare import CloudFlare
+import requests
 
-from dns.domains import Domain, domains
 import dns.log
+from dns.domains import Domain, domains
 
 
-class AddDomain(NamedTuple):
+@dataclass
+class AddDomain:
     name: str
     info: Domain
 
 
-class UpdateDomain(NamedTuple):
+@dataclass
+class UpdateDomain:
     name: str
     id: str
     info: Domain
@@ -30,24 +28,33 @@ class UpdateDomain(NamedTuple):
 root = "madefor.cc"
 
 
+class ApiClient:
+    def __init__(self, session: requests.Session, *, api_key: str, api_secret: str) -> None:
+        self._session = session
+        self._secrets = {"apikey": api_key, "secretapikey": api_secret}
+
+    def request(self, path: str, args: dict = {}) -> dict:
+        with self._session.post(
+            f"https://porkbun.com/api/json/v3/dns{path}",
+            json={**args, **self._secrets},
+            timeout=5,
+        ) as response:
+            if response.status_code not in (200, 201):
+                raise RuntimeError(f"Failed in request to {path} with {response.status_code}")
+
+            return response.json()
+
+
 def make_zone(name: str, info: Domain) -> dict:
     return {
         "name": name,
         "type": "CNAME",
         "content": info["cname"],
-        "proxied": info.get("cloudflare", False),
     }
 
 
-def main() -> None:
-    cloudflare = CloudFlare()
-    zones = cloudflare.zones.get(params={"name": root, "per_page": 1})
-    if not zones:
-        sys.stdout.write("Cannot find domain")
-        sys.exit(1)
-
-    zone_id: str = zones[0]["id"]
-    existing_domains = cloudflare.zones.dns_records.get(zone_id)
+def sync(client: ApiClient) -> None:
+    existing_domains = client.request(f"/retrieve/{root}", {})["records"]
 
     remove: List[str] = []
     add: List[AddDomain] = []
@@ -67,8 +74,9 @@ def main() -> None:
             remove.append(domain_id)
         else:
             domain = domains[name]
-            old, new = record["content"], domain["cname"]
-            if old != new or record["proxied"] != domain.get("cloudflare", False):
+            old: str = record["content"]
+            new: str = domain["cname"]
+            if old.lower() != new.lower():
                 logging.info(f"Updating record for {name} ({old} → {new})")
                 update.append(UpdateDomain(name=name, id=domain_id, info=domain))
             else:
@@ -82,15 +90,29 @@ def main() -> None:
     logging.warning("Applying DNS changes.")
 
     for record in add:
-        cloudflare.zones.dns_records.post(zone_id, data=make_zone(record.name, record.info))
+        client.request(f"/create/{root}", make_zone(record.name, record.info))
 
     for record in update:
-        cloudflare.zones.dns_records.put(zone_id, record.id, data=make_zone(record.name, record.info))
+        client.request(
+            f"/edit/{root}/{record.id}",
+            make_zone(record.name, record.info),
+        )
 
     for record in remove:
-        cloudflare.zones.dns_records.delete(zone_id, record)
+        client.request(f"/delete/{root}/{record}")
 
     logging.warning("Done.")
+
+
+def main() -> None:
+    api_key = os.getenv("PORKBUN_API_KEY")
+    api_secret = os.getenv("PORKBUN_API_SECRET")
+    if not api_key or not api_secret:
+        sys.stderr.write("Need API key and secret")
+        sys.exit(1)
+
+    with requests.Session() as session:
+        sync(ApiClient(session, api_key=api_key, api_secret=api_secret))
 
 
 if __name__ == "__main__":

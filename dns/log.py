@@ -4,11 +4,16 @@ import asyncio
 import logging
 import logging.config
 from typing import Any, Dict
-import warnings
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
 
-COLOURS = {"WARNING": YELLOW, "INFO": WHITE, "DEBUG": BLUE, "CRITICAL": YELLOW, "ERROR": RED}
+COLOURS = {
+    "WARNING": YELLOW,
+    "INFO": WHITE,
+    "DEBUG": BLUE,
+    "CRITICAL": YELLOW,
+    "ERROR": RED,
+}
 
 
 def loop_exception_handler(loop: asyncio.AbstractEventLoop, context: Dict[str, Any]) -> None:
@@ -39,13 +44,12 @@ FORMAT = "[%(asctime)s] [%(levelname)s/%(name)s] %(message)s"
 
 
 def configure() -> None:
-    """Configure the root logger. This should be called once when the program is
+    """
+    Configure the root logger. This should be called once when the program is
     initialised.
-
     """
     # Be more aggressive in capturing warnings
     logging.captureWarnings(True)
-    warnings.simplefilter("default")
 
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)

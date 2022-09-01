@@ -6,15 +6,7 @@ If you want to add your own, this is where you should do it!
 
 from typing import Dict, TypedDict
 
-
-class DomainOptional(TypedDict, total=False):
-    """Optional options for a domain."""
-
-    # Whether to proxy through cloudflare or not. Defaults to false.
-    cloudflare: bool
-
-
-class Domain(DomainOptional):
+class Domain(TypedDict):
     """Required options for a domain."""
 
     # The CNAME record which should be created.

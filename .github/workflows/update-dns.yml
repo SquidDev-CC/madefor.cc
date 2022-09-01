@@ -3,7 +3,7 @@ name: Update DNS
 on:
   push:
     branches:
-    - dev
+    - not-run-right-now
 
 jobs:
   make_doc:

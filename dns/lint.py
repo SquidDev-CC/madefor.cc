@@ -4,6 +4,8 @@ import sys
 from difflib import SequenceMatcher
 from typing import List
 
+import requests
+
 import dns.log
 from dns.domains import domains
 
@@ -59,16 +61,14 @@ def main(*, fetch_domains: bool = False) -> None:
     if fetch_domains:
         for domain in domains.keys():
             url = f"https://{domain}.madefor.cc"
-            from urllib.error import URLError
-            from urllib.request import urlopen
 
             try:
-                with urlopen(url, timeout=5) as h:
-                    if h.getcode() != 200:
-                        valid = False
-                        logging.error("Got HTTP %s when requesting %s", url)
+                response = requests.get(url, timeout=5)
+                if response.status_code != 200:
+                    valid = False
+                    logging.error("Got HTTP %s when requesting %s", response.status_code, url)
 
-            except URLError as e:
+            except requests.RequestException as e:
                 valid = False
                 logging.error("Cannot request %s (%s)", url, str(e))
 
@@ -80,7 +80,10 @@ if __name__ == "__main__":
 
     arg_spec = argparse.ArgumentParser()
     arg_spec.add_argument(
-        "--fetch-domains", default=False, action="store_true", help="Fetch each domain and check it is still up."
+        "--fetch-domains",
+        default=False,
+        action="store_true",
+        help="Fetch each domain and check it is still up.",
     )
     args = arg_spec.parse_args()
 
