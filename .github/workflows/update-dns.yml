@@ -3,12 +3,12 @@ name: Update DNS
 on:
   push:
     branches:
-    - not-run-right-now
+    - dev
 
 jobs:
   make_doc:
     name: Update DNS
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v1
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
@@ -27,4 +27,5 @@ jobs:
     - name: Update DNS
       run: poetry run python -m dns.sync
       env:
-        CF_API_KEY: ${{ secrets.CF_API_KEY }}
+        PORKBUN_API_KEY: ${{ secrets.PORKBUN_API_KEY }}
+        PORKBUN_API_SECRET: ${{ secrets.PORKBUN_API_SECRET }}
