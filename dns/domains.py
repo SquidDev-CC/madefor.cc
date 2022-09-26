@@ -16,6 +16,7 @@ class Domain(TypedDict):
 domains: Dict[str, Domain] = {
     # Please make sure to keep this sorted!
 
+    "advancedperipherals": { "cname": "advancedperipherals.netlify.app" },
     "basalt": { "cname": "pyroxenium.github.io" },
     "brag": { "cname": "bragosmagos.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
