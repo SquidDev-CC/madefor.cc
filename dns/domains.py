@@ -45,4 +45,5 @@ domains: Dict[str, Domain] = {
     "webify": { "cname": "webify.knijn.one" },
     "wolf-os": { "cname": "cc-wolf-os.github.io" },
     "www": { "cname": "madefor.cc" },
+    "x": { "cname": "lua-cratestry.deno.dev" },
 }
