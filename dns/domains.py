@@ -28,6 +28,7 @@ domains: Dict[str, Domain] = {
     "guih": { "cname": "9551-dev.github.io" },
     "impulsive-cc": { "cname": "emeraldimpulse7.github.io" },
     "infernity": { "cname": "infernostars.github.io" },
+    "kristify": { "cname": "kristify.github.io"},
     "metis": { "cname": "squiddev-cc.github.io" },
     "music": { "cname": "autoclave.squiddev.cc" },
     "pecdocs": { "cname": "apethesis.github.io" },
