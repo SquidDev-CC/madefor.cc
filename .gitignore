@@ -1,1 +1,5 @@
 *.pyc
+.cache
+site
+docs/Domains.md
+docs/index.md

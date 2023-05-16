@@ -1,0 +1,32 @@
+name: Deploy page
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "dns/domains.py"
+
+jobs:
+  deploy-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Set up Python 🧰
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      
+      - name: Install dependencies 🧰
+        run: |
+            pip install mkdocs-material~=9.1.12 mkdocs-minify-plugin~=0.6.4
+
+      - name: Generate documentation 📄
+        run: |
+            python -m dns.gen_docs > docs/Domains.md
+            cat README.md > docs/index.md
+
+      - name: Deploy page 🚀
+        run: mkdocs gh-deploy --force

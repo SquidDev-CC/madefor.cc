@@ -1,0 +1,83 @@
+# Project information
+site_name: madefor.cc
+site_url: https://madefor.cc/
+site_author: Commandcracker
+site_description: >-
+  Provides vanity domains for ComputerCraft-related projects.
+  This allows people to create their own websites, and use a x.madefor.cc domain.
+
+# Repository
+repo_name: madefor.cc
+repo_url: https://github.com/SquidDev-CC/madefor.cc
+
+# Configuration
+theme:
+  name: material
+  features:
+    - navigation.footer
+    - header.autohide
+    - content.code.copy
+    - navigation.tracking
+    - navigation.top
+    - navigation.tabs
+    - navigation.sections
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: yellow
+      accent: yellow
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: yellow
+      accent: yellow
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/icon.png
+  favicon: assets/icon.png
+  icon:
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SquidDev-CC/madefor.cc
+      name: GitHub
+    - icon: fontawesome/brands/discord
+      link: https://discord.computercraft.cc/
+      name: Discord
+
+# Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition:
+  - pymdownx.details:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Page tree
+nav:
+  - Home: index.md
+  - Domains: Domains.md
