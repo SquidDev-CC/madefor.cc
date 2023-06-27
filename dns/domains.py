@@ -40,6 +40,7 @@ domains: Dict[str, Domain] = {
     "poster": { "cname": "masongulu.github.io" },
     "potatos": { "cname": "osmarks.net" },
     "recrafted": { "cname": "ocawesome101.github.io" },
+    "sanjuuni": { "cname": "mcjack123.github.io" },
     "scm": { "cname": "mc-cc-scripts.github.io" },
     "ships": {"cname":"ships.knijn.one"},
     "siredvin": {"cname": "docs-redir.siredvin.site"},
