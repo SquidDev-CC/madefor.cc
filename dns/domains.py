@@ -22,6 +22,7 @@ domains: Dict[str, Domain] = {
     "brag": { "cname": "bragosmagos.github.io" },
     "c3d": { "cname": "9551-dev.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
+    "ccloner": { "cname": "hzfishy.github.io" },
     "consult" : {"cname": "1Turtle.github.io"},
     "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
     "freax": { "cname": "freax.netlify.app" },
