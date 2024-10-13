@@ -35,7 +35,7 @@ class ApiClient:
 
     def request(self, path: str, args: dict = {}) -> dict:
         with self._session.post(
-            f"https://porkbun.com/api/json/v3/dns{path}",
+            f"https://api.porkbun.com/api/json/v3/dns{path}",
             json={**args, **self._secrets},
             timeout=5,
         ) as response:
