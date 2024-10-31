@@ -33,6 +33,7 @@ domains: Dict[str, Domain] = {
     "infernity": { "cname": "infernostars.github.io" },
     "kristify": { "cname": "kristify.github.io"},
     "metis": { "cname": "squiddev-cc.github.io" },
+    "mg": { "cname": "minecraftedgaming.github.io" },
     "misc": { "cname": "masongulu.github.io" },
     "monitorsize": { "cname": "masongulu.github.io" },
     "music": { "cname": "so-desperate.squiddev.cc" },
