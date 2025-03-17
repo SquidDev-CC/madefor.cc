@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         pipx install poetry
-        poetry install
+        poetry sync
 
     - name: Typecheck code
       run: poetry run mypy dns

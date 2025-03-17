@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         pipx install poetry
-        poetry install
+        poetry sync --without=dev
 
     - name: Update DNS
       run: poetry run python -m dns.sync
