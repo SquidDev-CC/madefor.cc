@@ -51,6 +51,7 @@ domains: Dict[str, Domain] = {
     "siredvin": {"cname": "docs-redir.siredvin.site"},
     "skydocs": { "cname": "skythecodemaster.github.io" },
     "skygui": { "cname": "skythecodemaster.github.io" },
+    "Starlight-OS": { "cname": "starlight-cc.github.io" },
     "thox": { "cname": "thox.touhey.pro" },
     "turtlematic": {"cname": "docs-redir.siredvin.site"},
     "unicornpkg": { "cname": "unicornpkg.github.io" },
