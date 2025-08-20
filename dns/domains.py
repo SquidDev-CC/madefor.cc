@@ -15,7 +15,7 @@ class Domain(TypedDict):
 
 domains: Dict[str, Domain] = {
     # Please make sure to keep this sorted!
-
+    "ozyos": { "cname": "kuberow.github.io" },
     "advancedperipherals": { "cname": "docs.advanced-peripherals.de" },
     "basalt": { "cname": "pyroxenium.github.io" },
     "brag": { "cname": "bragosmagos.github.io" },
