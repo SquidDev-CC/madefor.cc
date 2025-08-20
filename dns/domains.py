@@ -37,6 +37,7 @@ domains: Dict[str, Domain] = {
     "misc": { "cname": "storehaus.github.io" },
     "monitorsize": { "cname": "shrekshellraiser.github.io" },
     "music": { "cname": "so-desperate.squiddev.cc" },
+    "ozyos": { "cname": "kuberow.github.io" },
     "pecdocs": { "cname": "apethesis.github.io" },
     "phileos" : {"cname": "ryan-te.github.io"},
     "phoenix": { "cname": "phoenix-computercraft.netlify.app" },
