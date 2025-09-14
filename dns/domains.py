@@ -18,6 +18,7 @@ domains: Dict[str, Domain] = {
 
     "advancedperipherals": { "cname": "docs.advanced-peripherals.de" },
     "basalt": { "cname": "pyroxenium.github.io" },
+    "xcc": { "cname": "shlomo1412.github.io" },
     "brag": { "cname": "bragosmagos.github.io" },
     "c3d": { "cname": "9551-dev.github.io" },
     "cash": { "cname": "mcjack123.github.io" },
