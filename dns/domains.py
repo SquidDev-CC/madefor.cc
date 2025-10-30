@@ -41,6 +41,7 @@ domains: Dict[str, Domain] = {
     "pecdocs": { "cname": "apethesis.github.io" },
     "phileos" : {"cname": "ryan-te.github.io"},
     "phoenix": { "cname": "phoenix-computercraft.netlify.app" },
+    "pixelui": { "cname": "shlomo1412.github.io" },
     "plethora": { "cname": "squiddev-cc.github.io" },
     "poster": { "cname": "shrekshellraiser.github.io" },
     "potatos": { "cname": "osmarks.net" },
