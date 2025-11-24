@@ -26,6 +26,7 @@ domains: Dict[str, Domain] = {
     "charmap": {"cname": "shrekshellraiser.github.io"},
     "consult" : {"cname": "1Turtle.github.io"},
     "craftos-pc": { "cname": "admiring-shannon-be238c.netlify.app" },
+    "cloveros": { "cname": "palordersoftworksofficial.github.io" },
     "datapacks": { "cname": "cc-tweaked.github.io" },
     "epoch": { "cname": "haeleon.github.io" },
     "guih": { "cname": "9551-dev.github.io" },
