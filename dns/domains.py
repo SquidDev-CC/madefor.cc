@@ -63,4 +63,5 @@ domains: Dict[str, Domain] = {
     "www": { "cname": "madefor.cc" },
     "xcc": { "cname": "shlomo1412.github.io" },
     "youcube": { "cname": "cc-youcube.github.io" },
+    "cloveros": { "cname": "palordersoftworksofficial.github.io" },
 }
