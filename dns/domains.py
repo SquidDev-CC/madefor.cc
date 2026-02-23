@@ -31,7 +31,6 @@ domains: Dict[str, Domain] = {
     "datapacks": { "cname": "cc-tweaked.github.io" },
     "epoch": { "cname": "haeleon.github.io" },
     "guih": { "cname": "9551-dev.github.io" },
-    "impulsive-cc": { "cname": "emeraldimpulse7.github.io" },
     "infernity": { "cname": "infernostars.github.io" },
     "kristify": { "cname": "kristify.github.io"},
     "metis": { "cname": "squiddev-cc.github.io" },
