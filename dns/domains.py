@@ -50,7 +50,7 @@ domains: Dict[str, Domain] = {
     "scm": { "cname": "mc-cc-scripts.github.io" },
     "ships": {"cname":"ships.knijn.one"},
     "siredvin": {"cname": "docs-redir.siredvin.site"},
-    "sj": {"cname": "simplyjames.github.io"},
+    "sj": {"cname": "simply-james.github.io"},
     "skydocs": { "cname": "skythecodemaster.github.io" },
     "skygui": { "cname": "skythecodemaster.github.io" },
     "starlight-os": { "cname": "starlight-cc.github.io" },
