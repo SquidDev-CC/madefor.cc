@@ -13,7 +13,7 @@ a `x.madefor.cc` domain.
    something else.
  - Set up your hosting provider with your subdomain. On GitHub, it's as simple as [creating a `CNAME` file][cname].
  - Add your subdomain and existing domain (for instance `me.github.io` or `whatever.netlify.app`) to the
-   `dns/domains.py` file, and send us a pull request!
+   `domains.toml` file, and send us a pull request!
 
 [madefor.cc]: https://madefor.cc
 [pages]: https://pages.github.com/
