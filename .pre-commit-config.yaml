@@ -13,9 +13,9 @@ repos:
     name: Taplo Format
     files: ".*toml"
     language: system
-    entry: uvx taplo==0.9.3 format
+    entry: pipx run taplo==0.9.3 format
   - id: taplo-lint
     name: Taplo Lint
     files: ".*toml"
     language: system
-    entry: uvx taplo==0.9.3 lint
+    entry: pipx run taplo==0.9.3 lint
